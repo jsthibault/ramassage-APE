@@ -1,0 +1,10 @@
+default ctor called
+Copy ctor has been called
+default ctor called
+default ctor called
+assignation operator called
+Element has been increased : 2
+The element is now equal to : hello
+the object has been deleted
+the object has been deleted
+the object has been deleted

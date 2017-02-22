@@ -1,0 +1,104 @@
+/*
+** str_to_int_tab.c for  in /home/siouly.nguy/rendu/C[pp]-minar/poule_d01/ex00
+** 
+** Made by siouly nguy
+** Login   <siouly.nguy@epitech.net>
+** 
+** Started on  Mon Feb 13 09:22:57 2017 siouly nguy
+** Last update Mon Feb 13 11:12:29 2017 siouly nguy
+*/
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <stdio.h>
+#define NB_BY_ROW 4
+
+void	my_putstr(char *str)
+{
+  int	i;
+
+  i = 0;
+  while (str[i])
+    {
+      write(1, &str[i], 1);
+      i++;
+    }
+  write(1, "\n", 1);
+}
+
+void	print_int_tab(int **nb)
+{
+  int	i;
+  int	j;
+  
+  i = 0;
+  j = 0;
+  while (nb[i])
+    {
+      while (nb[i][j])
+	{
+	  write(1, nb[i][j], 1);
+	  j++;
+	}
+      write(1, "\n", 1);
+      i++;
+    }
+}
+
+int	*my_fake_atoi(char *str)
+{
+  int	i;
+  int	j;
+  int	*nb;
+
+  i = 0;
+  j = 0;
+  if (str == NULL)
+    return (84);
+  while (str[i + 1])
+    {
+      if (str[i] >= '0' && str[i] <= '9' || str[i + 1] == ' ')
+	nb = str[i] + 48;
+      i++;
+    }
+  return (nb);
+}
+
+int	**str_to_int_tab(char *str)
+{
+  int	**tab;
+  int	*array;
+  int	i;
+  int	x;
+  int	y;
+
+  i = 0;
+  x = 0;
+  y = 0;
+  if (str == NULL)
+    return (0);
+  if (!(tab[x] = malloc(sizeof(strlen(str)))))
+    return (84);
+  while (str[i])
+    {
+      if (!(tab[x][y] = malloc(sizeof(strlen(str)))))
+	return (84);
+      array = my_fake_atoi(str);
+      printf("test:");
+      printf("%d\n", array);
+      i++;
+      
+    }
+  return (tab);
+}
+
+int	main(__attribute__((unused)) int ac, __attribute__((unused)) char **av)
+{
+  char	str[] = "4 8 15 16 23 42";
+
+  int	**tab = str_to_int_tab(str);
+  print_int_tab(tab);
+  return (0);
+}

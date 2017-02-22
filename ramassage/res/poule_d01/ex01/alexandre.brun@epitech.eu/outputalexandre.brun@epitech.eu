@@ -1,0 +1,6 @@
+443 -- HTTPS
+8080 -- HTTP
+ SIZE : 2
+8080 -- HTTP
+443 -- HTTPS
+ SIZE : 1
